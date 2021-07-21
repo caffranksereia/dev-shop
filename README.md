@@ -15,7 +15,7 @@ Sinta-se confortável para focar nas áreas que você tem mais habilidade.
 
 Priorize a lista de tarefas abaixo explicando os motivos da priorização de cada uma delas. Então, escolha de três a seis tarefas para implementar.
 
-* Determinar o preço do desenvolvedor a partir de informações do seu perfil do GitHub, como por exemplo: followers, repos, stars, commits, etc.
+* Determinar o preço do desenvolvedor a partir de informações do seu perfil do GitHub, como por exemplo: followers, repos, stars, commits, etc.O
 * Substituir os inputs de texto por uma lista de desenvolvedores com nome, foto, preço e um botão de "Adicionar ao carrinho".
 * Criar paginação para a lista de desenvolvedores.
 * Popular a lista de desenvolvedores a partir de uma organização do GitHub.
