@@ -1,10 +1,10 @@
 import './App.css';
-import ListUser from './Components/listUser.js'
+import SearchProfile from './Components/SearchProfile'
 
 function App() {
   return (
     <div className="App">
-      <ListUser></ListUser>
+      <SearchProfile></SearchProfile>
 
     </div>
   );
