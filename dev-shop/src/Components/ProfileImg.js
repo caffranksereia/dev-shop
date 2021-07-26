@@ -15,7 +15,7 @@ function ProfileImg(props) {
     return (
         <div>
             <h1>Image Profile</h1>
-            <img>
+            <img src={props.img}>
             
             </img>
            
