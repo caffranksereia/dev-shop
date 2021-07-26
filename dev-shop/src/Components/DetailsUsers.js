@@ -1,17 +1,16 @@
 import React from 'react';
 
 
-function DetailsUsers(props) {
-    
-
-    return(
-        <div>
+class DetailsUsers extends React.Component {
+    render(){
+        return(
             <div>
-                <h1>Detalhes do usuarios</h1>
+                <p>detalhes:{this.props.detalhes}</p>
             </div>
-            <p>detalhes:{props.detalhes}</p>
-        </div>
-    );
+        );
+    }
+
+    
 
 }
 
