@@ -2,7 +2,6 @@ import React, {  useState } from 'react';
 import axios from 'axios'
 
 import  Profile  from './Profile';
-import DetailsUsers from './DetailsUsers';
 import BuyingCar from './BuyingCar'
 import ProfileImg from './ProfileImg';
 
@@ -15,7 +14,7 @@ function SearchProfile (){
     const [repos,setRepos] = useState([]);
     const [details,setOpenDetails] = useState([]);
     
-
+  
     
     function submit(e){
         e.preventDefault();
@@ -34,11 +33,7 @@ function SearchProfile (){
     }   
     
     
-    function moreDetails(e){
-        e.preventDefault();
-        Details();
-        
-   }
+   
     function Details(){
         setLoading(true)
         axios.get(`https://api.github.com/users/${users}/repos`)
@@ -47,10 +42,7 @@ function SearchProfile (){
                 setOpenDetails(res.data)
                 console.log(res.data)
 
-                return  ( 
-                    <DetailsUsers detalhes ={details.map(renderDetail)} >
-                    </DetailsUsers>
-                )
+                
             })
         
         
@@ -70,6 +62,7 @@ function SearchProfile (){
     }
     
     
+    
     return (
     <div>
         <div className = "listuser">
@@ -78,32 +71,19 @@ function SearchProfile (){
             <button onClick = {submit}>{loading ? "Buscando...":"Buscar"}</button>
         </div>
         <div>
-            
-            <ProfileImg 
-                img = {repos.avatar_url}
-            >
-            </ProfileImg>  
-            
-            <Profile 
-                nickname = {repos.login}
-                nome = {repos.name}
-                localização = {repos.location}
-                Bio= {repos.bio}
-                Valor= {repos.public_repos}
-            >
-                
-            </Profile>
-            
+           <div  key ={details.id}>
+                <ProfileImg img = {repos.avatar_url}/>
+                <Profile nickname = {repos.login}
+                    nome = {repos.name}
+                    localização = {repos.location}
+                    Bio= {repos.bio}
+                    Valor= {repos.public_repos}
+                    detalhes ={details.map(renderDetail)}
+                />
+            </div>     
         </div>
-        <div>
-            <button onClick = {moreDetails}>{loading? "Carregando...":"detalhes"}</button>
-            <div>
-                <DetailsUsers detalhes ={details.map(renderDetail)} >
-                </DetailsUsers>
-
-            </div>
-        </div>
-        <div><button>Carrinho</button></div>
+        
+        <div><button >Carrinho</button></div>
 
         <div>
             <BuyingCar 
@@ -113,11 +93,7 @@ function SearchProfile (){
                 localização = {repos.location}
                 Bio= {repos.bio}
                 Valor= {repos.public_repos}
-            
-            
-            >
-
-            </BuyingCar>
+            />
         </div>
     
     </div>
