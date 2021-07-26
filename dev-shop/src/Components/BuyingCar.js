@@ -1,15 +1,35 @@
-import React from 'react'
+import React from 'react';
+import axios from 'axios';
+import Comprado from './Comprado';
 
-function BuyingCar(params) {
-    
+class BuyingCar extends React.Component{
 
-    return(
-        <div>
+    render(){
+        return(
+            <div>
+                <form>
+                    <label>Desenvolvedor:</label>
+                    <p>{this.props.name}</p>
+                    <label>Usuario:</label>
+                    <p>{this.props.nickname}</p>
+                    <label>Bio:</label>
+                    <p>{this.props.Bio}</p>
+                    <label>Valor:</label>
+                    <p>R${this.props.Valor},00/Por horas</p>
+                    
                 
-             carrinho
-            
-        </div>
-    );
+                
+                
+                </form>   
+                <div>
+                    <button>Pagar</button>
+                </div>
+                
+            </div>
+        );
+    }
+
+  
 
 }
 
