@@ -3,6 +3,8 @@ import axios from 'axios'
 
 import  Profile  from './Profile';
 import ProfileImg from './ProfileImg'
+import DetailsUsers from './DetailsUsers';
+import BuyingCar from './BuyingCar'
 
 
 
@@ -28,16 +30,7 @@ function SearchProfile (){
             console.log(res.data)
         })
     }
-    ///function subs(){
-        ///setLoading(true);
-       /// axios.get(`https://api.github.com/users/${users}/subscriptions`)
-        ///.then(res => {
-        ///    setLoading(false);
-        ///    setSub(res.data)
-       ///     console.log(res.data)
-       /// })
     
-    ///}
     function moreDetails(e){
         e.preventDefault();
         Details();
@@ -72,25 +65,29 @@ function SearchProfile (){
             <button onClick = {submit}>{loading ? "Buscando...":"Buscar"}</button>
         </div>
         <div>
-            <ProfileImg nickname={repos.login}
-            nome={repos.name}
-            localizacao= {repos.location}
-             bio = {repos.bio}
-             valor={repos.public_repos}
-             ></ProfileImg>
-            <img src={repos.avatar_url}/>
-            <Profile ></Profile>
-           <p>{repos.login}</p> 
-           <p>{repos.name}</p>
-           <p>{repos.location}</p>
-            <p>{repos.bio}</p>
-            <p>{repos.public_repos}</p>
+            <ProfileImg  
+                img = {repos.avatar_url}
+            ></ProfileImg>
+            
+            <Profile 
+                nickname = {repos.login}
+                nome = {repos.name}
+                localização = {repos.location}
+                Bio= {repos.bio}
+                Valor= {repos.public_repos}
+            ></Profile>
+            
         </div>
         <div>
             <button onClick = {moreDetails}>{loading? "Carregando...":"detalhes"}</button>
             <div>
-            {details.map(renderDetail)}
+            <DetailsUsers detalhes ={details.map(renderDetail)} >
+            </DetailsUsers>
+
             </div>
+        </div>
+        <div>
+            <BuyingCar></BuyingCar>
         </div>
     
     </div>
