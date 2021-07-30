@@ -16,17 +16,17 @@ export default function BuyingCar (props){
        )
     }
     
-        function renderDetail(detalhes) {
-            return(
-                <div key ={detalhes.id} >
+    function renderDetail(detalhes) {
+        return(
+            <div key ={detalhes.id} >
                     
-                    <label>nome do projeto: </label>{detalhes.name}
-                    <br></br>
-                    <label>Linguagem: </label>{detalhes.language}
+                <label>nome do projeto: </label>{detalhes.name}
+                <br></br>
+                <label>Linguagem: </label>{detalhes.language}
     
-                </div>
-            )
-        }
+            </div>
+       )
+    }
         return(
             
             <div>
@@ -42,6 +42,10 @@ export default function BuyingCar (props){
                </div>
                <div>
                    <button>Detalhe</button>
+               </div>
+               <div>
+                   <h1>Valor Total:</h1>
+                   <p></p>
                </div>
                <div>
                     <button onClick ={()=>{

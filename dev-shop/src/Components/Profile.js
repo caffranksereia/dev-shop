@@ -7,7 +7,7 @@ export default class Profile extends React.Component
     constructor(props){
         super(props)
 
-        this.hangleChange = this.hangleChange.bind(this)
+        
         
         this.addCar = this.addCar.bind(this)
         this.state = {
@@ -26,9 +26,7 @@ export default class Profile extends React.Component
     pageBuying(){
         useHistory.push('/Buying')
     }
-    hangleChange(e){
-        console.log('this is cupom')
-    }
+    
     
     addCar(e){
          console.log('this is addCar')
@@ -53,7 +51,7 @@ export default class Profile extends React.Component
                
                  
                 </div>
-                <button onClick={this.hangleChange}>Desconto</button>
+               
                 
                 <button onClick ={this.addCar}>
                     

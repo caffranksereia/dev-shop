@@ -1,9 +1,9 @@
-import React,{useState,useEffect} from 'react';
+import React,{useState} from 'react';
 import api from '../Services/api';
 import Profile from './Profile';
 import ProfileImg from './ProfileImg';
 import BuyingCar from './BuyingCar';
-import Comprado from './Comprado';
+
 
 
 

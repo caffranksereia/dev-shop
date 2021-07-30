@@ -1,5 +1,24 @@
 {
   "dependencies": {
-    "json-server": "^0.16.3"
-  }
+    "json-server": "^0.16.3",
+    "uuid": "^8.3.2"
+  },
+  "name": "dev-shop",
+  "description": "\"# dev-shop\" \r admin luci0001",
+  "version": "1.0.0",
+  "main": "index.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/caffranksereia/dev-shop.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/caffranksereia/dev-shop/issues"
+  },
+  "homepage": "https://github.com/caffranksereia/dev-shop#readme"
 }
