@@ -1,49 +1,67 @@
-import axios from 'axios';
 import React from 'react';
-import DetailsUsers from './DetailsUsers';
-
-
-class Profile extends React.Component
+import { useHistory } from 'react-router-dom';
+import BuyingCar from './BuyingCar'
+;
+export default class Profile extends React.Component
 {
-  
-    
-    
     constructor(props){
-        super(props);
-        this.state = {showComponents:true}
-        this.infoComponets =this.infoComponets.bind(this)
-        this.loading = false;
-        this.setLoading = false
+        super(props)
+
+        this.hangleChange = this.hangleChange.bind(this)
+        
+        this.addCar = this.addCar.bind(this)
+        this.state = {
+            img:'',
+            Bio:'',
+            nome :'',
+            nickname: '',
+            Valor: '',
+            
+        }
+
+    }
+    componentDidUpdate(){
+
+    }
+    pageBuying(){
+        useHistory.push('/Buying')
+    }
+    hangleChange(e){
+        console.log('this is cupom')
     }
     
-
-    infoComponets(){
-        this.setState(state =>({
-            showComponents: !state.showComponents
-        }))
+    addCar(e){
+         console.log('this is addCar')
     }
+    render(props){
+        
 
-  
-    render(){
         return(
+             
             <div>
-
-                <p>nickname: {this.props.nickname}</p> 
-                <p>nome: {this.props.nome}</p>
-                <p>localização: {this.props.localização}</p>
-                <p>Bio: {this.props.Bio}</p>
-                <p>Valor: {this.props.Valor}</p>
                 <div>
+                    <h1>Perfil</h1>
+                </div>
+                
+                <div>
+                 
+                    <p> Nome:{this.props.nome}</p>
+                    <p> Nick: {this.props.nickname}</p>
+                    <p>Bio:{this.props.Bio}</p>
+                    <p>localização: {this.props.localização}</p>
+                    <p> Valor:{this.props.valor},00/por horas</p>
                
-                <div>
-                <DetailsUsers detalhes ={this.props.detalhes} 
-                />
-
+                 
+                </div>
+                <button onClick={this.hangleChange}>Desconto</button>
+                
+                <button onClick ={this.addCar}>
+                    
+                    Adicionar Carrinho
+                </button>
             </div>
-        </div>
-            </div>
+        
+          
         );    
     }
 }
-
-export default Profile;

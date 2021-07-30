@@ -5,7 +5,8 @@ function ProfileImg(props) {
     
     return (
         <div>
-            <img src={props.img}>
+            <img src={props.avatar} alt ={props.login}
+            >
             
             </img>
            

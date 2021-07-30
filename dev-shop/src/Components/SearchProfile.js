@@ -1,32 +1,34 @@
-import React, {  useState } from 'react';
-import axios from 'axios'
-
-import  Profile  from './Profile';
-import BuyingCar from './BuyingCar'
+import React,{useState,useEffect} from 'react';
+import api from '../Services/api';
+import Profile from './Profile';
 import ProfileImg from './ProfileImg';
+import BuyingCar from './BuyingCar';
+import Comprado from './Comprado';
 
 
 
-
-function SearchProfile (){
+export default function SearchProfile (){
     const [users,setUsers] = useState([]);
     const [loading,setLoading] = useState(false);
     const [repos,setRepos] = useState([]);
     const [details,setOpenDetails] = useState([]);
+    const[profileRende,setProfileRende] = useState(false);
     
-  
-    
+
+   
     function submit(e){
         e.preventDefault();
         searchUsers();
        
     }
     function searchUsers(){
+        setProfileRende(true)
         setLoading(true);
-        axios.get(`https://api.github.com/users/${users}`)
+        api.get(`https://api.github.com/users/${users}`)
         .then(res => {
             setLoading(false);
             setRepos(res.data)
+            
             console.log(res.data)
         })
         
@@ -36,7 +38,7 @@ function SearchProfile (){
    
     function Details(){
         setLoading(true)
-        axios.get(`https://api.github.com/users/${users}/repos`)
+        api.get(`https://api.github.com/users/${users}/repos`)
             .then(res =>{
                 setLoading(false);
                 setOpenDetails(res.data)
@@ -71,28 +73,40 @@ function SearchProfile (){
             <button onClick = {submit}>{loading ? "Buscando...":"Buscar"}</button>
         </div>
         <div>
+        
            <div  key ={details.id}>
-                <ProfileImg img = {repos.avatar_url}/>
-                <Profile nickname = {repos.login}
+               {
+                   profileRende ? 
+                   <ProfileImg avatar ={repos.avatar_url} alt ={repos.login}/>
+              :'' }
+           {profileRende ? 
+               
+                <Profile 
+                    
+                    nickname = {repos.login}
                     nome = {repos.name}
                     localização = {repos.location}
                     Bio= {repos.bio}
-                    Valor= {repos.public_repos}
-                    detalhes ={details.map(renderDetail)}
-                />
-            </div>     
+                    valor= {repos.public_repos}
+                    
+                ><button>detalhes</button></Profile>
+            : ''  }
+            
+            </div>   
         </div>
-        
-        <div><button >Carrinho</button></div>
-
         <div>
-            <BuyingCar 
+            <BuyingCar
+                avatar = {repos.avatar_url}
+                nome ={repos.name}
+                nickname={repos.login}
+                localização={repos.location}
+                bio = {repos.bio}
+                valor={repos.public_repos}
+                detalhes ={details.map(renderDetail)}
                 
-                name = {repos.name}
-                nickname = {repos.login}
-                localização = {repos.location}
-                Bio= {repos.bio}
-                Valor= {repos.public_repos}
+                
+            
+        
             />
         </div>
     
@@ -101,4 +115,3 @@ function SearchProfile (){
     );
 }
 
-export default SearchProfile;
