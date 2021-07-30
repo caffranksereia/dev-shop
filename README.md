@@ -16,7 +16,6 @@ Sinta-se confortável para focar nas áreas que você tem mais habilidade.
 Priorize a lista de tarefas abaixo explicando os motivos da priorização de cada uma delas. Então, escolha de três a seis tarefas para implementar.
 
 * Determinar o preço do desenvolvedor a partir de informações do seu perfil do GitHub, como por exemplo: followers, repos, stars, commits, etc.O.
-* Permitir a adição de um cupom de desconto que altera o preço total da compra. Utilize o código "SHIPIT".
 * Melhorar a virsualização do desenvolvedor no carrinho mostrando mais informações.
 * Adicionar um botão de "comprar" que leva o usuário a uma página de pedido confirmado.0
 
