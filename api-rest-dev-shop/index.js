@@ -16,6 +16,13 @@ app.use(express.urlencoded({ extended: true }))
 
 db.defaults({ BuyCar:[]}).write()
 
+app.use(function(req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    next();
+  });
+
+
 
 app.get('/BuyCarAll',(req,res) =>{
     const data = db.get('BuyCar').value()
@@ -31,13 +38,17 @@ app.get('/BuyCar/:id',(req,res) =>{
     res.json(userBuyCar)
 
 })
-app.post('/ByuCarr/post',(req,res) =>{
+app.post('/BuyCar/post',(req,res) =>{
 
     const NewBuyCar = {
         id:v4(),
         Username:req.body.Username,
         name:req.body.name,
-        valor:req.body.valor
+        valor:req.body.valor,
+        detalhes:req.body.detalhes,
+        Bio:req.body.Bio,
+        localização:req.body.localização
+        
         
     } 
     console.log(NewBuyCar)
