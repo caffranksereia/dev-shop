@@ -1,7 +1,8 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
-import BuyingCar from './BuyingCar'
-;
+import BuyCar from '../Services/BuyCar';
+import BuyingCar from './BuyingCar';
+
 export default class Profile extends React.Component
 {
     constructor(props){
@@ -11,28 +12,35 @@ export default class Profile extends React.Component
         
         this.addCar = this.addCar.bind(this)
         this.state = {
-            img:'',
-            Bio:'',
-            nome :'',
-            nickname: '',
-            Valor: '',
+            RenderBuy:false
             
         }
 
     }
     componentDidUpdate(){
-
+        this.setState.RenderBuy =! this.setState.RenderBuy
     }
     pageBuying(){
         useHistory.push('/Buying')
     }
     
     
-    addCar(e){
-         console.log('this is addCar')
+    addCar(){
+        this.setState.RenderBuy =!this.state.RenderBuy;
+        const data ={
+            name: this.props.nome,
+            nickname:this.props.nickname,
+            valor:this.props.valor,
+            detalhes:this.props.detalhes,
+            Bio:this.props.Bio,
+            localização:this.props.localização
+
+        }
+        console.log(data)
+        BuyCar.buyCarPost(data)
     }
     render(props){
-        
+        const RenderBuy= true
 
         return(
              
@@ -48,6 +56,7 @@ export default class Profile extends React.Component
                     <p>Bio:{this.props.Bio}</p>
                     <p>localização: {this.props.localização}</p>
                     <p> Valor:{this.props.valor},00/por horas</p>
+                    <p>detalhes:{this.props.detalhes}</p>
                
                  
                 </div>
@@ -57,6 +66,11 @@ export default class Profile extends React.Component
                     
                     Adicionar Carrinho
                 </button>
+                {RenderBuy ?
+                    <div>
+                        <BuyingCar/>
+                    </div>
+                :''}
             </div>
         
           
