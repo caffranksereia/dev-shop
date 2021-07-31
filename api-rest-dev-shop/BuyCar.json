@@ -1,3 +1,29 @@
 {
-  "BuyCar": []
+  "BuyCar": [
+    {
+      "id": "b297e72e-c8fb-488c-a95e-a8c10a343c73",
+      "name": "Fábio Eduardo Circuncisão",
+      "valor": 22
+    },
+    {
+      "id": "f62b1582-ef2b-4bbb-ac6a-cd5d374397ae",
+      "name": "Fábio Eduardo Circuncisão",
+      "valor": 22
+    },
+    {
+      "id": "888b9b63-e1a2-4d72-8c96-13f94ad2c3b2",
+      "name": "Fábio Eduardo Circuncisão",
+      "valor": 22
+    },
+    {
+      "id": "f9827c6f-02bc-40a8-9e43-161f29ee322e",
+      "name": "Fábio Eduardo Circuncisão",
+      "valor": 22
+    },
+    {
+      "id": "33048b7d-223e-45bb-a9b2-ecdf555488c4",
+      "name": "Fábio Eduardo Circuncisão",
+      "valor": 22
+    }
+  ]
 }
