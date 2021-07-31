@@ -2,7 +2,7 @@ import React,{useState} from 'react';
 import api from '../Services/api';
 import Profile from './Profile';
 import ProfileImg from './ProfileImg';
-import BuyingCar from './BuyingCar';
+
 
 
 
@@ -13,12 +13,13 @@ export default function SearchProfile (){
     const [repos,setRepos] = useState([]);
     const [details,setOpenDetails] = useState([]);
     const[profileRende,setProfileRende] = useState(false);
-    
+  
 
    
     function submit(e){
         e.preventDefault();
         searchUsers();
+        Details();
        
     }
     function searchUsers(){
@@ -45,23 +46,13 @@ export default function SearchProfile (){
                 console.log(res.data)
 
                 
-            })
-        
-        
-        
-    }
-    
-    function renderDetail(details) {
-        return(
-            <div key ={details.id} >
-                
-                <label>nome do projeto: </label>{details.name}
-                <br></br>
-                <label>Linguagem: </label>{details.language}
-
-            </div>
+            }
         )
     }
+   
+    
+    
+
     
     
     
@@ -89,25 +80,13 @@ export default function SearchProfile (){
                     Bio= {repos.bio}
                     valor= {repos.public_repos}
                     
-                ><button>detalhes</button></Profile>
+                   
+                    
+                ></Profile>
             : ''  }
             
             </div>   
-        </div>
-        <div>
-            <BuyingCar
-                avatar = {repos.avatar_url}
-                nome ={repos.name}
-                nickname={repos.login}
-                localização={repos.location}
-                bio = {repos.bio}
-                valor={repos.public_repos}
-                detalhes ={details.map(renderDetail)}
-                
-                
             
-        
-            />
         </div>
     
     </div>
