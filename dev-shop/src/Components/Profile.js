@@ -31,9 +31,8 @@ export default class Profile extends React.Component
             name: this.props.nome,
             nickname:this.props.nickname,
             valor:this.props.valor,
-            detalhes:this.props.detalhes,
             Bio:this.props.Bio,
-            localização:this.props.localização
+            localizacao:this.props.localizacao
 
         }
         console.log(data)
@@ -53,11 +52,8 @@ export default class Profile extends React.Component
                  
                     <p> Nome:{this.props.nome}</p>
                     <p> Nick: {this.props.nickname}</p>
-                    <p>Bio:{this.props.Bio}</p>
-                    <p>localização: {this.props.localização}</p>
                     <p> Valor:{this.props.valor},00/por horas</p>
-                    <p>detalhes:{this.props.detalhes}</p>
-               
+                    
                  
                 </div>
                
