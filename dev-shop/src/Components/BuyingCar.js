@@ -33,8 +33,11 @@ export default function BuyingCar (){
     
    const historia = useHistory()
    
-    function Comprando(){
-        historia.push("/Comprando")
+                
+               
+
+            </div>
+        )
     }
         
         return(
@@ -46,24 +49,21 @@ export default function BuyingCar (){
                
                
                <div>
-                   <button>Detalhe</button>
+                    {postBuy.map(renderDetail)}
                </div>
                <div>
-                   <h1>Valor Total:</h1>
-                   <p></p>
-               </div>
-               <div>
-                    <button onClick ={Comprando()}>
-                            Comprar
-                        
-                    </button>
-               </div>
+                <button onClick={
+                    ()=>{
+                        historia.push("/Compras")
+                    }
+                }>Comprar </button>
+            </div>
 
                 
             </div>
         );
     
-    
+       
     
        
   
