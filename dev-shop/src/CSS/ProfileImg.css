@@ -1,0 +1,18 @@
+.raw{
+    height: 100px;
+    width: 100px;
+    justify-content: center;
+    margin: 30px 20px 10px 20%;
+}
+.Card{
+    justify-content: center;
+}
+.cardImg{
+    height: 50px;
+    
+}
+.cardImg > img {
+    height: 200px;
+    width: 200px;
+    justify-content: center;
+}
