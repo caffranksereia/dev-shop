@@ -49,7 +49,6 @@ app.post('/BuyCar/post',(req,res) =>{
         Bio:req.body.Bio,
         localizacao:req.body.localizacao
     }
-    console.log(NewBuyCar)
     db.get('BuyCar').push(NewBuyCar).write()
     res.send("its ok")
 })
