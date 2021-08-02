@@ -4,16 +4,19 @@ import Buying from './Components/Buying'
 import BuyingCar from './Components/BuyingCar';
 import Profile from './Components/Profile';
 import SearchProfile from './Components/SearchProfile';
+import Nav from './Components/Nav';
 
 function App() {
   return (
     <div className="App">
+      <Nav/>
       <Router>
         <Switch>
-          <Route exact path="/Compras" component={Buying}/>
-          <Route exact path ="/Carrinho" component={BuyingCar}/>
-          <Route exact path="/Profile" component={Profile}/>
-          <Route exact path="/home" component={SearchProfile}/>
+          <Route  path ="/" exact component ={SearchProfile}/>
+          <Route  path="/Compras" exact component={Buying}/>
+          <Route  path ="/Carrinho" exact component={BuyingCar}/>
+          <Route  path="/Profile" exact component={Profile}/>
+          
         </Switch>
        
       </Router>

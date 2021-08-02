@@ -1,0 +1,17 @@
+.Nav{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    min-height: 10vh;
+    color: white;
+}
+.nav-link{
+    height: 40px;
+}
+ul{
+    width: 50%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    list-style: none;
+}

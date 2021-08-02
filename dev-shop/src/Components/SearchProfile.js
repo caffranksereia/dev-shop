@@ -54,14 +54,15 @@ export default function SearchProfile (){
         </div>
         <div>
             <div>
+                
                 <div>
-                    {
-                        profileRende ? 
-                        <ProfileImg avatar ={repos.avatar_url} alt ={repos.login}/>
-                    :'' }
-                </div>
-                <div>
-                    {profileRende ? 
+                    <div>
+                        {
+                            profileRende ? 
+                            <ProfileImg avatar ={repos.avatar_url} alt ={repos.login}/>
+                        :'' }
+                    </div>
+                        {profileRende ? 
                     
                         <Profile 
                             nickname = {repos.login}
