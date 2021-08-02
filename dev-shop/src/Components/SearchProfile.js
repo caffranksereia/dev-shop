@@ -35,15 +35,17 @@ export default function SearchProfile (){
         <div className = "listuser">
             <div>
                 <div>
-                    <div>
+                    <div className= "Text">
                         <h1>Dev Shop</h1>
                     </div>
                     <div>
                         <h2>Voce encontra o seu NERD de programção aqui no Dev Shop</h2>
                     </div>
                     <div>
-                        <div>
+                        <div className = "InputText">
                             <input type="text" placeholder= "users" value= {users} onChange = {e => setUsers(e.target.value)}/>
+                        </div>
+                        <div>
                             <button onClick = {submit}>{loading ? "Buscando...":"Buscar"}</button>
                         </div>
                     </div>
