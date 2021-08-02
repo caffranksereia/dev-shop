@@ -2,6 +2,7 @@ import React,{useState} from 'react';
 import api from '../Services/api';
 import Profile from './Profile';
 import ProfileImg from './ProfileImg';
+import '../CSS/SearchProfile.css'
 
 export default function SearchProfile (){
     const [users,setUsers] = useState([]);
@@ -32,37 +33,46 @@ export default function SearchProfile (){
     return (
     <div>
         <div className = "listuser">
-            
-            <p>{users}</p>
-            <input type="text" placeholder= "users" value= {users} onChange = {e => setUsers(e.target.value)}/>
-            <button onClick = {submit}>{loading ? "Buscando...":"Buscar"}</button>
+            <div>
+                <div>
+                    <div>
+                        <h1>Dev Shop</h1>
+                    </div>
+                    <div>
+                        <h2>Voce encontra o seu NERD de programção aqui no Dev Shop</h2>
+                    </div>
+                    <div>
+                        <div>
+                            <input type="text" placeholder= "users" value= {users} onChange = {e => setUsers(e.target.value)}/>
+                            <button onClick = {submit}>{loading ? "Buscando...":"Buscar"}</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
         <div>
-        
-           <div>
-               {
-                   profileRende ? 
-                   <ProfileImg avatar ={repos.avatar_url} alt ={repos.login}/>
-              :'' }
-           {profileRende ? 
-               
-                <Profile 
+            <div>
+                <div>
+                    {
+                        profileRende ? 
+                        <ProfileImg avatar ={repos.avatar_url} alt ={repos.login}/>
+                    :'' }
+                </div>
+                <div>
+                    {profileRende ? 
                     
-                    nickname = {repos.login}
-                    nome = {repos.name}
-                    localizacao = {repos.location}
-                    Bio= {repos.bio}
-                    valor= {repos.public_repos}
-                    
-                   
-                    
-                ></Profile>
-            : ''  }
-            
+                        <Profile 
+                            nickname = {repos.login}
+                            nome = {repos.name}
+                            localizacao = {repos.location}
+                            Bio= {repos.bio}
+                            valor= {repos.public_repos}
+                        ></Profile>
+                    : ''  }
+                </div>
             </div>   
-            
         </div>
-           
+        
     </div>
     
     );
