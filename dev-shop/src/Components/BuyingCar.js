@@ -16,25 +16,32 @@ export default function BuyingCar (){
     function renderDetail(postBuy) {
         return(
             <div key ={postBuy.id} >
-
-                <label>Nome: </label>{postBuy.name}
-                <br></br>
-                <label>valor: </label>{postBuy.valor}
-                <br></br>
-                <label>Nickname:</label>{postBuy.Username}
-                <br></br>
-                <label>Bio: </label>{postBuy.Bio}
-                <br></br>
-                <label>Detalhes: </label>{postBuy.name}
-                <br></br>
-                <label>Localização: </label>{postBuy.localizacao}
-                <br></br>
-                
-                
-                
-                
-               
-
+                <div className="renderdiv">
+                    <div>
+                        <label>Nome:</label>
+                        {postBuy.name}
+                    </div>
+                    <div>
+                        <label>valor: </label>
+                        {postBuy.valor}
+                    </div>
+                    <div>
+                        <label>Nickname:</label>
+                        {postBuy.Username}
+                    </div>
+                    <div>
+                        <label>Bio: </label>
+                        {postBuy.Bio}
+                    </div>
+                    <div>
+                        <label>Detalhes: </label>
+                        {postBuy.name}
+                    </div>
+                    <div>
+                        <label>Localização: </label>
+                        {postBuy.localizacao}
+                    </div>
+                </div>
             </div>
         )
     }
@@ -46,18 +53,16 @@ export default function BuyingCar (){
                 <div>
                     <h1>Carrinho de compras</h1>
                 </div> 
-               <div>
+               <div className="divPost">
                     {postBuy.map(renderDetail)}
                </div>
-            <div>
-                <button onClick={
-                    ()=>{
-                        historia.push("/Compras")
-                    }
-                }>Comprar </button>
-            </div>
-
-                
+                 <div className="buttonCar">
+                    <button id="button" onClick={
+                        ()=>{
+                            historia.push("/Compras")
+                        }
+                    }>Comprar </button>
+                </div>
             </div>
         );
     
