@@ -38,23 +38,22 @@ app.get('/BuyCar/:id',(req,res) =>{
     res.json(userBuyCar)
 
 })
+
 app.post('/BuyCar/post',(req,res) =>{
 
     const NewBuyCar = {
         id:v4(),
-        Username:req.body.Username,
+        Username:req.body.nickname,
         name:req.body.name,
         valor:req.body.valor,
-        detalhes:req.body.detalhes,
         Bio:req.body.Bio,
-        localização:req.body.localização
-        
-        
-    } 
+        localizacao:req.body.localizacao
+    }
     console.log(NewBuyCar)
     db.get('BuyCar').push(NewBuyCar).write()
     res.send("its ok")
 })
+
 
 app.put('/BuyCar/update/:id',(req,res) =>{
     const id = req.params.id
