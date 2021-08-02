@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState,useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import BuyCar from '../Services/BuyCar'
 
@@ -29,10 +29,9 @@ export default function BuyingCar (){
                 <br></br>
                 <label>Localização: </label>{postBuy.localizacao}
                 <br></br>
-    
-    
-   const historia = useHistory()
-   
+                
+                
+                
                 
                
 
@@ -40,18 +39,17 @@ export default function BuyingCar (){
         )
     }
         
+
         return(
             
             <div>
                 <div>
                     <h1>Carrinho de compras</h1>
                 </div> 
-               
-               
                <div>
                     {postBuy.map(renderDetail)}
                </div>
-               <div>
+            <div>
                 <button onClick={
                     ()=>{
                         historia.push("/Compras")
