@@ -2,6 +2,7 @@ import React from 'react';
 import { useHistory } from 'react-router-dom';
 import BuyCar from '../Services/BuyCar';
 import BuyingCar from './BuyingCar';
+import '../CSS/Profile.css'
 
 export default class Profile extends React.Component
 {
@@ -35,7 +36,6 @@ export default class Profile extends React.Component
             localizacao:this.props.localizacao
 
         }
-        console.log(data)
         BuyCar.buyCarPost(data)
     }
     render(props){
@@ -43,11 +43,14 @@ export default class Profile extends React.Component
 
         return(
              
-            <div>
-                <div>
-                    <h1>Perfil</h1>
+            <div className = "container">
+                <div className = "text">
+                    <div className = "texPerfil">
+                        <div className = "Perfil">
+                            <h1>Perfil</h1>
+                        </div>
+                    </div>
                 </div>
-                
                 <div>
                  
                     <p> Nome:{this.props.nome}</p>
