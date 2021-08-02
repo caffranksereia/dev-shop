@@ -2,16 +2,11 @@ import React,{useState} from 'react';
 import api from '../Services/api';
 import Profile from './Profile';
 import ProfileImg from './ProfileImg';
-import BuyingCar from './BuyingCar';
-
-
-
 
 export default function SearchProfile (){
     const [users,setUsers] = useState([]);
     const [loading,setLoading] = useState(false);
     const [repos,setRepos] = useState([]);
-    const [details,setOpenDetails] = useState([]);
     const[profileRende,setProfileRende] = useState(false);
   
 
@@ -19,8 +14,7 @@ export default function SearchProfile (){
     function submit(e){
         e.preventDefault();
         searchUsers();
-        Details();
-       
+        
     }
     function searchUsers(){
         setProfileRende(true)
@@ -34,38 +28,7 @@ export default function SearchProfile (){
         })
         
     }   
-    
-    
-   
-    function Details(){
-        setLoading(true)
-        api.get(`https://api.github.com/users/${users}/repos`)
-            .then(res =>{
-                setLoading(false);
-                setOpenDetails(res.data)
-                console.log(res.data)
-
-                
-            }
-        )
-    }
-   
-    function renderDetail(details) {
-        return(
-            <div key ={details.id} >
-
-                <label>Nome: </label>{details.language}
-                <br></br>
-                
-            
-            </div>
-        )
-    }
-    
-
-    
-    
-    
+ 
     return (
     <div>
         <div className = "listuser">
@@ -76,7 +39,7 @@ export default function SearchProfile (){
         </div>
         <div>
         
-           <div  key ={details.id}>
+           <div>
                {
                    profileRende ? 
                    <ProfileImg avatar ={repos.avatar_url} alt ={repos.login}/>
