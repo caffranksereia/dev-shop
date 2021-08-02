@@ -1,17 +1,19 @@
 import React from 'react';
+import '../CSS/ProfileImg.css'
 
 
 function ProfileImg(props) {
     
     return (
-        <div>
-            <img src={props.avatar} alt ={props.login}
-            >
-            
-            </img>
-           
+        <div className = "container">
+            <div className = "raw">
+                <div className = "Card">
+                    <div className = "cardImg">
+                        <img src={props.avatar} alt ={props.login}></img>
+                    </div>
+                </div>
+            </div>
         </div>
-    
     );
 }
 
