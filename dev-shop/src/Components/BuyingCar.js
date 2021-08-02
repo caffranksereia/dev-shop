@@ -1,6 +1,7 @@
 import React, { useState,useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
-import BuyCar from '../Services/BuyCar'
+import BuyCar from '../Services/BuyCar';
+import '../CSS/BuyingCar.css'
 
 export default function BuyingCar (){
     const [postBuy,setPostBy] = useState([])
@@ -8,7 +9,6 @@ export default function BuyingCar (){
 
     useEffect(()=>{
         BuyCar.buyCarAll().then(res =>{
-            console.log(res.data)
             setPostBy(res.data)
         })
     },[])
