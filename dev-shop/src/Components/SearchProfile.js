@@ -2,7 +2,7 @@ import React,{useState} from 'react';
 import api from '../Services/api';
 import Profile from './Profile';
 import ProfileImg from './ProfileImg';
-
+import BuyingCar from './BuyingCar';
 
 
 
@@ -50,7 +50,17 @@ export default function SearchProfile (){
         )
     }
    
-    
+    function renderDetail(details) {
+        return(
+            <div key ={details.id} >
+
+                <label>Nome: </label>{details.language}
+                <br></br>
+                
+            
+            </div>
+        )
+    }
     
 
     
@@ -59,6 +69,7 @@ export default function SearchProfile (){
     return (
     <div>
         <div className = "listuser">
+            
             <p>{users}</p>
             <input type="text" placeholder= "users" value= {users} onChange = {e => setUsers(e.target.value)}/>
             <button onClick = {submit}>{loading ? "Buscando...":"Buscar"}</button>
@@ -76,7 +87,7 @@ export default function SearchProfile (){
                     
                     nickname = {repos.login}
                     nome = {repos.name}
-                    localização = {repos.location}
+                    localizacao = {repos.location}
                     Bio= {repos.bio}
                     valor= {repos.public_repos}
                     
@@ -88,7 +99,7 @@ export default function SearchProfile (){
             </div>   
             
         </div>
-    
+           
     </div>
     
     );
