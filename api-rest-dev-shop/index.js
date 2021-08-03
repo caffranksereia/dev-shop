@@ -72,5 +72,6 @@ app.delete('/BuyCar/delete/:id',(req,res) =>{
 })
 
 app.listen(port,() =>{
-    console.log(`localhost:${port}`)
+     
+    console.log(process.env.PORT || `localhost:${port}`)
 })
