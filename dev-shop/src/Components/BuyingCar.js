@@ -1,75 +1,68 @@
-import React, { useState,useEffect } from 'react';
+import React from 'react';
 import { useHistory } from 'react-router-dom';
 import BuyCar from '../Services/BuyCar';
 import '../CSS/BuyingCar.css'
+import ListBying from './ListBuying';
 
-export default function BuyingCar (){
-    const [postBuy,setPostBy] = useState([])
-    const historia= useHistory()
+export default class BuyingCar extends React.Component{
+    constructor(props){
+        super(props);
 
-    useEffect(()=>{
-        BuyCar.buyCarAll().then(res =>{
-            setPostBy(res.data)
-        })
-    },[])
+        this.state = {
+            data:[]
+        }
 
-    function renderDetail(postBuy) {
-        return(
-            <div key ={postBuy.id} >
-                <div className="renderdiv">
-                    <div>
-                        <label>Nome:</label>
-                        {postBuy.name}
-                    </div>
-                    <div>
-                        <label>valor: </label>
-                        {postBuy.valor}
-                    </div>
-                    <div>
-                        <label>Nickname:</label>
-                        {postBuy.Username}
-                    </div>
-                    <div>
-                        <label>Bio: </label>
-                        {postBuy.Bio}
-                    </div>
-                    <div>
-                        <label>Detalhes: </label>
-                        {postBuy.name}
-                    </div>
-                    <div>
-                        <label>Localização: </label>
-                        {postBuy.localizacao}
-                    </div>
-                </div>
-            </div>
-        )
     }
-        
-
+    componentDidMount(){
+        BuyCar.buyCarAll().then(res =>{
+            this.setState({data:res.data})
+        })  
+    }
+    
+    render(){
+        const {data} = this.state
         return(
-            
             <div>
                 <div>
                     <h1>Carrinho de compras</h1>
                 </div> 
-               <div className="divPost">
-                    {postBuy.map(renderDetail)}
-               </div>
-                 <div className="buttonCar">
-                    <button id="button" onClick={
-                        ()=>{
-                            historia.push("/Compras")
-                        }
-                    }>Comprar </button>
+                {data.map((buy) => 
+                    <div key ={buy.id} >
+                        <div className="renderdiv">
+                            <div>
+                                <label>Nome:</label>
+                                {buy.name}
+                            </div>
+                            <div>
+                                <label>valor: </label>
+                                {buy.valor},
+                            </div>
+                            <div>
+                                <label>Nickname:</label>
+                                {buy.Username}
+                            </div>
+                            <div>
+                                <label>Bio: </label>
+                                {buy.Bio}
+                            </div>
+                            <div>
+                                <label>Localização: </label>
+                                {buy.localizacao}
+                            </div>
+                        </div>
+                    </div>
+                )}
+                {console.log(data)}
+                <div>
+                    <button id="button">Comprar </button>
                 </div>
             </div>
         );
-    
+    }
        
     
        
   
 
 }
-
+ 
