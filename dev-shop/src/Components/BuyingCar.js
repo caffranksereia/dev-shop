@@ -1,8 +1,8 @@
 import React from 'react';
-import { useHistory } from 'react-router-dom';
 import BuyCar from '../Services/BuyCar';
-import '../CSS/BuyingCar.css'
-import ListBying from './ListBuying';
+import '../CSS/BuyingCar.css';
+import PageCompraButton from './PageCompraButton';
+
 
 export default class BuyingCar extends React.Component{
     constructor(props){
@@ -53,9 +53,7 @@ export default class BuyingCar extends React.Component{
                     </div>
                 )}
                 {console.log(data)}
-                <div>
-                    <button id="button">Comprar </button>
-                </div>
+                <PageCompraButton/>
             </div>
         );
     }
